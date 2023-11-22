@@ -4,6 +4,7 @@
   --red: #D21312;
   --lightRed: #F15A59;
 }
+
 *{
   margin:0;
   padding: 0;
@@ -100,7 +101,7 @@ nav ul li:hover{
 }
 
 .landing {
-  background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url("./assets/carbg.jpg");
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("./assets/carbg.jpg");
   height: 82vh;
   width: 100vw;
   background-size: cover;
@@ -142,7 +143,7 @@ nav ul li:hover{
   height: 85vh;
   place-items: center;
   text-align: center;
-  background: linear-gradient(rgb(8, 10, 79,0.5),rgb(8, 10, 79,0.9)),url("./assets/cars.webp");
+  background: linear-gradient(rgb(8, 10, 79,0.5),rgb(8, 10, 79,0.5)),url("./assets/cars.webp");
   background-size: cover;
   background-position: center;
 }
@@ -159,7 +160,7 @@ nav ul li:hover{
 
 .login-form .Login {
   background-color: #e37070;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: 0 5px 10px rgba(0,0,0,0.9);
   border-radius: 2px;
 }
@@ -182,4 +183,43 @@ nav ul li:hover{
   letter-spacing: 2px;
   margin: 20px;
   font-weight: bold;
+}
+
+@media screen and(min-width:820px) {
+  .mobile-navbar ul {
+    display: none;
+  }
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background-color: var(--lightRed);
+  margin: 50px;
+  color: var(--darkBlue);
+  font-size: 2rem;
+  text-align: justify;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
+.profile-container p {
+  margin: 10px;
+}
+
+.construction {
+  height: 82vh;
+  width: 100vw;
+  background: url("./assets/construction.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.error {
+  color: black;
+  border: 2px solid black;
+  padding: 5px;
+  background-color: red;
 }

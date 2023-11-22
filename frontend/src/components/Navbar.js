@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { FaBars } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Navbar = () => {
   const {user} = useAuthContext();
   const {logout} = useLogout();
@@ -16,7 +16,18 @@ const Navbar = () => {
     setNav(true)
     else
     setNav(false)
-  }
+  } 
+
+  useEffect(()=>{
+    const handleResize=()=>{
+      setNav(false);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  })
+
 
   return ( 
     <> 
@@ -24,9 +35,9 @@ const Navbar = () => {
         <label className="logo">SparkleRide</label>
         <ul>
           <li><Link to = "/" className="Link">Home</Link></li>
-          <li><Link to = "/about" className="Link">About Us</Link></li>
-          <li><Link to = "/about" className="Link">Services</Link></li>
-          <li><Link to = "/about" className="Link">Contact Us</Link></li>
+          <li><Link to = "/construction" className="Link">About Us</Link></li>
+          <li><Link to = "/construction" className="Link">Services</Link></li>
+          <li><Link to = "/construction" className="Link">Contact Us</Link></li>
         </ul>
         <ul>
           {user && (
@@ -50,22 +61,22 @@ const Navbar = () => {
       {
        nav && <div className="mobile-navbar">
        <ul>
-           <li><Link to = "/" className="Link">Home</Link></li>
-           <li><Link to = "/about" className="Link">About Us</Link></li>
-           <li><Link to = "/about" className="Link">Services</Link></li>
-           <li><Link to = "/about" className="Link">Contact Us</Link></li>
+           <li onClick={handleHamClick}><Link to = "/" className="Link">Home</Link></li>
+           <li onClick={handleHamClick}><Link to = "/construction" className="Link">About Us</Link></li>
+           <li onClick={handleHamClick}><Link to = "/construction" className="Link">Services</Link></li>
+           <li onClick={handleHamClick}><Link to = "/construction" className="Link">Contact Us</Link></li>
          {user && (
-           <li>
-             <button onClick={handleClick} className="Link">Logout</button>
+           <li onClick={handleHamClick}>
+             <button onClick={handleClick} className="Link navbtn" style={{fontSize: "1.5rem",fontWeight:"bold"}}>Logout</button>
            </li>
          )}
          {!user && (
-           <li>
+           <li onClick={handleHamClick}>
            <Link to="/login" className="Link navbtn">Login</Link>
            </li>
          )}
          {!user && (
-           <li>
+           <li onClick={handleHamClick}>
            <Link to="/register" className="Link navbtn">Register</Link>
            </li>
          )}

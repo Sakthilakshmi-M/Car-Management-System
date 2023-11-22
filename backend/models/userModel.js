@@ -10,14 +10,19 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
+  mobile:{
+    type: String,
+    required: true,
+    unique: true,
+  },
   password: {
     type: String,
     required: true
   }
 })
 
-userSchema.statics.register = async function(email,password){
-  if(!email || !password)
+userSchema.statics.register = async function(email,mobile,password){
+  if(!email ||!mobile|| !password)
   {
     throw Error("All fields must be filled");
   }
@@ -29,6 +34,10 @@ userSchema.statics.register = async function(email,password){
   {
     throw Error("Password is not strong enough");
   }
+  if(!validator.isMobilePhone(mobile,'en-IN'))
+  {
+    throw Error("Mobile number is invalid!!");
+  }
   const exists = await this.findOne({email});
   if(exists)
   {
@@ -37,7 +46,7 @@ userSchema.statics.register = async function(email,password){
 
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password,salt);
-  const user = this.create({email,password:hash});
+  const user = this.create({email,mobile,password:hash});
 
   return user
 }
