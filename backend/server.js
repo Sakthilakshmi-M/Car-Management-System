@@ -1,9 +1,18 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require('cors');
 const auth = require("./routes/authRoute");
 const userRoute = require("./routes/userRoutes");
 const {mongoose} = require("mongoose");
 const app = express()
+
+app.use(cors(
+  {
+    origin:["https://deploy-mern-1whq.vercel.app"],
+    methods: ["POST","GET"],
+    credentials: true
+  }
+))
 app.use(express.json())
 
 app.use("/api/auth",auth);
