@@ -1,5 +1,5 @@
 {
-  "proxy": "https://cms-3d0y95074-sakthis-projects-55116336.vercel.app/",
+  "proxy": "http://localhost:5000",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
