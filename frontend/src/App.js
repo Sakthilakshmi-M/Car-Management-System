@@ -6,6 +6,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Construction from "./pages/Construction";
+import { inject } from '@vercel/analytics';
+ 
+inject();
 function App() {
   const {user} = useAuthContext()
   return(
