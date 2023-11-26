@@ -6,7 +6,7 @@ const Profile = ()=>{
   const [userDetail,setUserDetail] = useState({});
   useEffect(()=>{
     const fetchUser = async()=>{
-      const response = await fetch('/api/user/'+user.email,{
+      const response = await fetch('https://sparkle-w5wt.onrender.com/api/user/'+user.email,{
         headers:{'Authorization':`Bearer ${user.token}`}
       })
       const json = await response.json()

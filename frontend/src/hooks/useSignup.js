@@ -9,7 +9,7 @@ export const useSignUp = ()=>{
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("/api/auth/register",{
+    const response = await fetch("https://sparkle-w5wt.onrender.com/api/auth/register",{
       method:'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({email,mobile,password})
