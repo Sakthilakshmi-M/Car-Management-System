@@ -10,7 +10,7 @@ app.use(express.json())
 
 app.use(cors());
 app.use(cors({
-  origin: 'https://voluble-gecko-d26491.netlify.app',
+  origin: 'https://mernapp-uwdg.onrender.com/',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'Content-Type,Authorization',
 }));
