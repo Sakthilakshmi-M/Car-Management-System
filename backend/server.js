@@ -3,19 +3,19 @@ const express = require("express");
 const auth = require("./routes/authRoute");
 const userRoute = require("./routes/userRoutes");
 const {mongoose} = require("mongoose");
-const path = require("path");
+// const path = require("path");
 const app = express()
 app.use(express.json())
 
 app.use("/api/auth",auth);
 app.use("/api/user",userRoute)
 
-//serving the frontend
+// //serving the frontend
 
-app.use(express.static(path.join(__dirname,'./frontend/build')))
-app.get("*",function(req,res){
-  res.sendFile(path.join(__dirname,"./frontend/public/index.html"))
-})
+// app.use(express.static(path.join(__dirname,'./frontend/build')))
+// app.get("*",function(req,res){
+//   res.sendFile(path.join(__dirname,"./frontend/public/index.html"))
+// })
 
 mongoose.connect(process.env.MONGO_URI)
 .then(
