@@ -3,6 +3,13 @@ const express = require("express");
 const auth = require("./routes/authRoute");
 const userRoute = require("./routes/userRoutes");
 const {mongoose} = require("mongoose");
+const cors = require('cors');
+app.use(cors());
+app.use(cors({
+  origin: 'https://voluble-gecko-d26491.netlify.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+}));
 // const path = require("path");
 const app = express()
 app.use(express.json())
